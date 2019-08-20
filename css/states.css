@@ -1,0 +1,118 @@
+ul {
+    list-style-type: none;
+    margin: -13px;
+    padding: 0;
+    width: 300px;
+    display: inline;
+}
+
+
+ul li {
+    color: white;
+    text-decoration: none;
+    margin: 0;
+    padding: 15px 10px;
+    font-size: 17px;
+    display: inline;
+}
+
+ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+ul li p{
+    color: white;
+    text-decoration: none;
+    margin: -4px;
+}
+
+
+ul li a:active {
+    color: #FF8700;
+}
+
+ul li a:hover:not(.active) {
+    color: #fdfd96;
+}
+
+.scoreboard{
+    padding:10px 10px;
+    color: white;
+    font-size: 17px;
+}
+
+.timer a:hover, a:active, a:focus{
+    background-color:#FF8700;
+    cursor: hand;
+}
+
+button {
+    text-align: center;
+    text-decoration: none;
+    margin: 10px;
+    float: right;
+}
+
+.timer h1{
+    display:inline;
+    color: white;
+    font-size: 17px;
+}
+
+.background{
+    background: -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430));
+    background: linear-gradient(to left, #7b4397, #dc2430);
+}
+
+.displayContainer_1 {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 0;
+    width: 85%;
+}
+
+.displayContainer_1 svg path {
+    fill: teal;
+    transition: fill .4s ease-out; 
+    background-color: lighten(green, 5%);
+    cursor: pointer;
+    cursor: hand;
+
+}
+
+.displayContainer_1 svg path:hover, .displayContainer_1 svg path:focus, .displayContainer_1 svg path:active, .displayContainer_1 svg path.active{
+    transition: fill .4s ease-out; 
+    background-color: lighten(green, 5%);
+    cursor: pointer;
+    cursor: hand;
+}
+
+.displayContainer_1 svg path:hover {
+    fill: #dc2430;
+    transition: fill .4s ease-out; 
+    background-color: lighten(green, 5%);
+    cursor: pointer;
+    cursor: hand;
+
+}
+
+.displayContainer_1 svg path:active {
+    fill: #dc2430;
+    transition: fill .4s ease-out; 
+    background-color: lighten(green, 5%);
+    cursor: pointer;
+    cursor: hand;
+
+}
+
+.displayContainer_1 svg path:focus {
+    fill: #dc2430;
+    transition: fill .4s ease-out; 
+    background-color: lighten(green, 5%);
+    cursor: pointer;
+    cursor: hand;
+
+}
+
+

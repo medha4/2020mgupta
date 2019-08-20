@@ -1,0 +1,108 @@
+ul {
+    list-style-type: none;
+    margin: -8px;
+    padding: 0;
+    width: 300px;
+}
+
+
+li {
+    display: inline;
+    color: white;
+    text-decoration: none;
+    margin: 0;
+    padding: 15px 10px;
+    display: inline;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    float: left;
+    font-size: 17px;
+}
+
+li a{
+    display: inline;
+    color: white;
+    text-decoration: none;
+    margin: 0;
+    padding: 15px 10px;
+    display: inline;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    float: left;
+    font-size: 17px;
+}
+
+li a:active {
+    color: #FF8700;
+}
+
+li a:hover:not(.active) {
+    color: #fdfd96;
+}
+
+
+
+
+#textField{
+    padding: 10px 10px;
+    margin-left: 50px;
+    float:center;
+
+}
+
+.scoreboard{
+    display:inline;
+    padding:10px 10px;
+    color: white;
+    font-size: 17px;
+}
+
+.scoreboard p{
+    float: right;
+    margin-right:50px;
+}
+
+.scoreboard p1{
+    float: center;
+    margin:50px 50px 10px 30px;
+    font-size: 17px;
+}
+
+.timer a:hover, a:active, a:focus{
+    background-color:#FF8700;
+    cursor: hand;
+}
+
+.timebutton {
+    background-color: teal;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    text-align:center;
+    margin-right: 10px;
+    display: inline;
+    float: right;
+}
+
+.timer h1{
+    display:inline;
+    color: white;
+    font-size: 17px;
+}
+
+#start{
+
+}
+
+#stop{
+
+}
+
+#textField{
+    float:center;
+}

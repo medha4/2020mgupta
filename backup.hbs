@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <link rel="stylesheet" type="text/css" href="css/header.css">
+    </head>
+    <body class = "background">
+        
+        <p>Hi {{{name}}}</p>
+            
+        <h1>Click the cookie</h1>
+        <img src="/2020mgupta/oreo" onclick = "updatescore()" alt = "cookie">
+        <br>
+        Baked cookies:
+        <div id = "result"> 
+        0
+        </div>
+        <br>
+        Money made: $
+        <div id = "money"> 
+        0
+        </div>
+        <div id = "error"></div>
+        
+        <button type = "button" onclick = "basegrowth()">Sell Cookie(s)</button>
+        <button type = "button" onclick = "booster()">Sell Two Cookies at a Time for $10</button>
+        <button type = "button" onclick = "booster100()">Sell 100 Cookies at a Time for $100</button>
+        <button type = "button" onclick = "reset()">Reset to Initial State</button>
+ 
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type = 'text/javascript'>
+            
+            var count = 0;
+            var sold = 0;
+            var amountcookiescanbesold = 1;
+            
+            var userid = {{userid}};
+            
+            $(function(){
+               getinitialcookiescore(); 
+            });
+
+            function getinitialcookiescore(){
+
+                $.get({
+                    url: 'get_initial_cookie_score',
+                    data: {"user": userid},
+                    success: function(data){
+                        console.log('data', data);
+                        if(data.score){
+                            console.log("count updated", count, data.score);
+                            count = data.score;
+                            sold = data.sold;
+                            amountcookiescanbesold = data.amount;
+                            $("#result").text(count);
+                            $("#money").text(sold);
+                        }
+                    },
+                    error: function(data) {
+                        console.log("there is an error");
+                    }
+                });
+            }
+            function updatescore(){
+                count++;
+                $.get({
+                    url: 'update_table',
+                    data: {"user": userid, "count": count, "sold": sold, "amount": amountcookiescanbesold},
+                    success: function(data){
+                        $("#result").text(count);
+                        console.log(data);
+                    },
+                    error: function(data) {
+                        console.log("there is an error");
+                    }
+                });
+            }
+            
+            function update(){
+                console.log(count);
+                $.get({
+                    url: 'update_table',
+                    data: {"user": userid, "count": count, "sold": sold, "amount": amountcookiescanbesold},
+                    success: function(data){
+                        $("#result").text(count);
+                        console.log(data);
+                    },
+                    error: function(data) {
+                        console.log("there is an error");
+                    }
+                });
+            }
+            function basegrowth(){
+                if (count < amountcookiescanbesold)
+                {
+                    $("#error").text("error: you don't have enough cookies to sell");
+                }
+                else
+                {
+                    count-=amountcookiescanbesold;
+                    sold+=amountcookiescanbesold;
+                    $("#result").text(count);
+                    $("#money").text(sold);
+                }
+                update();
+            }
+            
+            function booster(){
+                if (sold < 10)
+                {
+                    $("#error").text("you don't have enough money");
+                }
+                else
+                {
+                    sold-=10;
+                    amountcookiescanbesold = 2;
+                    $("#money").text(sold);
+                }
+                
+                update();
+            }
+            
+            
+            function booster100(){
+                if (sold < 100)
+                {
+                    $("#error").text("you don't have enough money");
+                }
+                else
+                {
+                    sold-=100;
+                    amountcookiescanbesold = 100;
+                    $("#money").text(sold);
+                }
+                
+               update();
+            }
+            
+            function reset(){
+                count = 0;
+                sold = 0;
+                amountcookiescanbesold = 1;
+                $.get({
+                    url: 'update_table',
+                    data: {"user": userid, "count": count, "sold": sold, "amount": amountcookiescanbesold},
+                    success: function(data){
+                        $("#result").text(count);
+                        $("#money").text(sold);
+                        console.log(data);
+                    },
+                    error: function(data) {
+                        console.log("there is an error");
+                    }
+                });
+            }
+
+        </script>
+        
+    </body>
+</html>
